@@ -25,7 +25,7 @@ library(DGGAPM)
 load('data/expressionData.rda')
 p <- 100
 h <- 4
-res<-DGGAPM(A,100,4)
+res<-dggapm(A,100,4)
 R <- res[[1]]      # partial correlation matrix
 adj <- res[[2]]    # binary adjacency matrix
 ```
@@ -66,7 +66,4 @@ Based on adaptive thresholding, this correlation matrix can be further transform
 
 The experimental code implementation in the paper can be viewed in applications folder.
 
-## Citation
-
-Feifei Ran, Ying Liu, Bin Lian, Xuequn Shang, Jie He*, Jialu Hu*，Inferring gene co-expression networks from scRNA-seq data using partial correlation coefficients (submitted)
 

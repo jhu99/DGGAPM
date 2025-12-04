@@ -1,4 +1,4 @@
-#' @title gcnpcc
+#' @title dggapm
 #'
 #' @description
 #' Calculate partial correlation coefficients for a given set of genes and return the partial correlation matrix, with edges of the gene network estimated through adaptive thresholding
@@ -8,7 +8,7 @@
 #' @param h a parameter
 #' @export
 #' @return a matrix representing pairwise gene correlations and a binary adjacency matrix indicating the presence of network edges between genes
-gcnpcc <- function(A,p,h){
+dggapm <- function(A,p,h){
   A<-t(A)
   n = dim(A)[1]; p = dim(A)[2]
   t0 = 2; tau = seq(0, 3.5, 0.01); smax = n / 2; lentau = length(tau); c0 = 0.25
