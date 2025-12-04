@@ -1,10 +1,10 @@
-Package: gcnpcc
+Package: dggapm
 Type: Package
 Title: Inferring gene co-expression networks from scRNA-seq data using partial correlation coefficients
 Version: 1.0.0
 Author: Ran Feifei
 Maintainer: Ran Feifei <rff_henu@163.com>
-Description: GCNPCC reconstructs gene co-expression networks based on partial correlation coefficients, 
+Description: dggapm reconstructs gene co-expression networks based on partial correlation coefficients, 
     measuring correlations between genes by statistical inference.
 License: What license is it under?
 Encoding: UTF-8
