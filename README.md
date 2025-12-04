@@ -1,19 +1,19 @@
-# GCNPCC: Inferring gene co-expression networks from scRNA-seq data using partial correlation coefficients
+# DGGAPM: Efficient Inference of Direct Gene–Gene Associations via High-Dimensional Precision Matrix with Rigorous FDR Control
 
-![](https://img.shields.io/github/r-package/v/jhu99/GCNPCC)
-![](https://img.shields.io/github/license/jhu99/GCNPCC)
-[![](https://img.shields.io/github/downloads/jhu99/GCNPCC/latest/total)](https://github.com/jhu99/GCNPCC/graphs/traffic)
-![](https://img.shields.io/github/stars/jhu99/GCNPCC?style=social)
+![](https://img.shields.io/github/r-package/v/jhu99/DGGAPM)
+![](https://img.shields.io/github/license/jhu99/DGGAPM)
+[![](https://img.shields.io/github/downloads/jhu99/DGGAPM/latest/total)](https://github.com/jhu99/DGGAPM/graphs/traffic)
+![](https://img.shields.io/github/stars/jhu99/DGGAPM?style=social)
 
 
-&emsp;&emsp;We propose a method, GCNPCC, based on partial correlation coefficient to reconstruct gene co-expression networks by measuring correlation relationships among genes through statistical inference. Besides the gene interaction network, GCNPCC can also identify correlation relationships for gene modules that are composed of functionally similar genes, and infer the functional roles each gene played in the modules. We applied it to several real data sets and compared it with several state-of-the-art methods. Results demonstrate that our method is superior to other existing methods in terms of both accuracy and specificity.
+&emsp;&emsp;We propose a method, DGGAPM, based on partial correlation coefficient to reconstruct gene co-expression networks by measuring correlation relationships among genes through statistical inference. Besides the gene interaction network, DGGAPM can also identify correlation relationships for gene modules that are composed of functionally similar genes, and infer the functional roles each gene played in the modules. We applied it to several real data sets and compared it with several state-of-the-art methods. Results demonstrate that our method is superior to other existing methods in terms of both accuracy and specificity.
 
 ## Installation
 
 For installation please use the following codes in R:
 
 ```R
-install_github("jhu99/GCNPCC")
+install_github("jhu99/DGGAPM")
 install.packages("scalreg")
 ```
 
@@ -21,17 +21,17 @@ install.packages("scalreg")
 
 This example calculates partial correlation coefficients for a set of $100$ genes across $421$ single cells using gene expression data from mouse embryonic stem cells:
 ```R
-library(gcnpcc)
+library(DGGAPM)
 load('data/expressionData.rda')
 p <- 100
 h <- 4
-res<-gcnpcc(A,100,4)
+res<-DGGAPM(A,100,4)
 R <- res[[1]]      # partial correlation matrix
 adj <- res[[2]]    # binary adjacency matrix
 ```
 The output includes a partial correlation matrix and a binary adjacency matrix representing the gene co-expression network edges.
 
-### Input of GCNPCC
+### Input of DGGAPM
 
 `A` : A $p \times n$ matrix of gene expression data, where $p$ is the number of genes (here, $100$) and $n$ is the number of cells (here, $421$).
 
@@ -39,9 +39,9 @@ The output includes a partial correlation matrix and a binary adjacency matrix r
 
 `h` : A regularization parameter controlling the sparsity and stability of the model coefficients (here, $h = 4$).
 
-### Output of GCNPCC
+### Output of DGGAPM
 
-The output of GCNPCC consists of a $p \times p$ correlation matrix $R$ with the format:
+The output of DGGAPM consists of a $p \times p$ correlation matrix $R$ with the format:
 ```
  1.0000000000 -0.024134294 -6.447580e-02  0.0414261210  ...
 -0.0241342944  1.000000000  1.771790e-01  0.0129375893  ...
@@ -69,3 +69,4 @@ The experimental code implementation in the paper can be viewed in applications 
 ## Citation
 
 Feifei Ran, Ying Liu, Bin Lian, Xuequn Shang, Jie He*, Jialu Hu*，Inferring gene co-expression networks from scRNA-seq data using partial correlation coefficients (submitted)
+
