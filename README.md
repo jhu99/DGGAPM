@@ -6,7 +6,7 @@
 ![](https://img.shields.io/github/stars/jhu99/DGGAPM?style=social)
 
 
-&emsp;&emsp;We propose a method, DGGAPM, based on partial correlation coefficient to reconstruct gene co-expression networks by measuring correlation relationships among genes through statistical inference. Besides the gene interaction network, DGGAPM can also identify correlation relationships for gene modules that are composed of functionally similar genes, and infer the functional roles each gene played in the modules. We applied it to several real data sets and compared it with several state-of-the-art methods. Results demonstrate that our method is superior to other existing methods in terms of both accuracy and specificity.
+&emsp;&emsp;We propose a novel method, dGGAPM (Direct Gene-Gene Associations via Precision Matrix), which reconstructs gene coexpression networks by statistically inferring direct gene-gene relationships. Unlike conventional approaches that rely on pairwise correlation measures and may capture indirect associations, dGGAPM leverages partial correlation to more accurately characterize direct interactions while controlling for the influence of all other genes. The main contributions of this research are threefold. First, in contrast to existing methods, we construct the high-dimensional gene network using an estimated precision matrix, providing a rigorous and principled foundation for statistical inference of gene–gene relationships. Second, we recover the network structure through a high-dimensional multiple testing procedure that takes advantage of the asymptotic properties of the precision matrix estimator. Finally, we introduce a data-driven thresholding strategy that achieves strict false discovery rate (FDR) control, ensuring reliable identification of coexpression links in high-dimensional settings. 
 
 ## Installation
 
@@ -19,7 +19,7 @@ install.packages("scalreg")
 
 ## Example
 
-This example calculates partial correlation coefficients for a set of $100$ genes across $421$ single cells using gene expression data from mouse embryonic stem cells:
+This example calculates estimated precision matrix for a set of $100$ genes across $421$ single cells using gene expression data from mouse embryonic stem cells:
 ```R
 library(DGGAPM)
 load('data/expressionData.rda')
@@ -41,7 +41,7 @@ The output includes a partial correlation matrix and a binary adjacency matrix r
 
 ### Output of DGGAPM
 
-The output of DGGAPM consists of a $p \times p$ correlation matrix $R$ with the format:
+The output of DGGAPM consists of a $p \times p$ estimated precision matrix $R$ with the format:
 ```
  1.0000000000 -0.024134294 -6.447580e-02  0.0414261210  ...
 -0.0241342944  1.000000000  1.771790e-01  0.0129375893  ...
