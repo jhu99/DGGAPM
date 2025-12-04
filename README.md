@@ -6,7 +6,7 @@
 ![](https://img.shields.io/github/stars/jhu99/DGGAPM?style=social)
 
 
-&emsp;&emsp;We propose a novel method, dGGAPM (Direct Gene-Gene Associations via Precision Matrix), which reconstructs gene coexpression networks by statistically inferring direct gene-gene relationships. Unlike conventional approaches that rely on pairwise correlation measures and may capture indirect associations, dGGAPM leverages partial correlation to more accurately characterize direct interactions while controlling for the influence of all other genes. The main contributions of this research are threefold. First, in contrast to existing methods, we construct the high-dimensional gene network using an estimated precision matrix, providing a rigorous and principled foundation for statistical inference of gene–gene relationships. Second, we recover the network structure through a high-dimensional multiple testing procedure that takes advantage of the asymptotic properties of the precision matrix estimator. Finally, we introduce a data-driven thresholding strategy that achieves strict false discovery rate (FDR) control, ensuring reliable identification of coexpression links in high-dimensional settings. 
+&emsp;&emsp;We propose a novel method, dGGAPM (Direct Gene-Gene Associations via Precision Matrix), which reconstructs gene coexpression networks by statistically inferring direct gene-gene relationships. Unlike conventional approaches that rely on pairwise correlation measures and may capture indirect associations, dGGAPM leverages high-dimensional precision matrix to more accurately characterize direct interactions while controlling for the influence of all other genes. The main contributions of this research are threefold. First, in contrast to existing methods, we construct the high-dimensional gene network using an estimated precision matrix, providing a rigorous and principled foundation for statistical inference of gene–gene relationships. Second, we recover the network structure through a high-dimensional multiple testing procedure that takes advantage of the asymptotic properties of the precision matrix estimator. Finally, we introduce a data-driven thresholding strategy that achieves strict false discovery rate (FDR) control, ensuring reliable identification of coexpression links in high-dimensional settings. 
 
 ## Installation
 
@@ -19,17 +19,17 @@ install.packages("scalreg")
 
 ## Example
 
-This example calculates estimated precision matrix for a set of $100$ genes across $421$ single cells using gene expression data from mouse embryonic stem cells:
+In this example, it calculates estimated precision matrix for a set of $100$ genes across $421$ single cells using gene expression data from mouse embryonic stem cells:
 ```R
 library(DGGAPM)
 load('data/expressionData.rda')
 p <- 100
 h <- 4
 res<-dggapm(A,100,4)
-R <- res[[1]]      # partial correlation matrix
-adj <- res[[2]]    # binary adjacency matrix
+R <- res[[1]]      # a precision matrix
+adj <- res[[2]]    # a binary adjacency matrix
 ```
-The output includes a partial correlation matrix and a binary adjacency matrix representing the gene co-expression network edges.
+The output includes a precision matrix and a binary adjacency matrix representing the gene co-expression network edges.
 
 ### Input of DGGAPM
 
